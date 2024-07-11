@@ -11,7 +11,7 @@ object AirplaneTask {
         {
           (acc: Map[Int, List[Char]], i: String) => {
             val key = i.charAt(0).asDigit
-            acc.updated(key, acc.getOrElse(i.charAt(0).asDigit, List.empty[Char]) :+ i.charAt(1))
+            acc.updated(key, acc.getOrElse(key, List.empty[Char]) :+ i.charAt(1))
           }
         }
     }.getOrElse(Map[Int, List[Char]]())
