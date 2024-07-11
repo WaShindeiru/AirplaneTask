@@ -7,15 +7,14 @@ object AirplaneTask {
   def solution(numRows: Int, reservations: String): Int = {
     val charMap = Try {
       reservations
-        .split(" ").foldLeft(Map[Int, List[Char]]()) {
+        .split(" ").foldLeft(Map[Int, List[Char]]())
+        {
           (acc: Map[Int, List[Char]], i: String) => {
             val key = i.charAt(0).asDigit
             acc.updated(key, acc.getOrElse(i.charAt(0).asDigit, List.empty[Char]) :+ i.charAt(1))
           }
         }
     }.getOrElse(Map[Int, List[Char]]())
-
-    println(charMap)
 
     (1 to numRows)
       .map { (i: Int) =>
